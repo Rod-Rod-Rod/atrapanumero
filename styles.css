@@ -1,0 +1,146 @@
+/* Fondo del juego */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4a6aa7, #001b49); /* Fondo degradado */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+  
+  /* Contenedor del juego */
+  #game-area {
+    position: relative;
+    width: 90%;
+    height: 60%;
+    margin: 20px 0;
+    background: #0a0da3;    /* Fondo semitransparente */
+    border: 2px solid #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Título del juego */
+  h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffdf00;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin: 10px 0;
+  }
+  
+  /* Indicadores de tiempo y puntaje */
+  #target-number,
+  #score {
+    font-size: 1.8rem;
+    margin: 10px;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: inline-block;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Barra de tiempo */
+  #time-bar-container {
+    width: 90%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  #time-bar {
+    height: 100%;
+    background: lawngreen; /* Verde brillante */
+    transition: width 0.1s linear;
+  }
+  
+  /* Pelotas */
+  .ball {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .ball:hover {
+    transform: scale(1.1); /* Agrandar ligeramente al pasar el cursor */
+  }
+  
+  /* Mensaje de fin del juego */
+  #game-over-message {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  #game-over-message h2 {
+    font-size: 2.2rem;
+    color: #ffdf00;
+  }
+  
+  #game-over-message button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.7);
+    transition: background 0.3s ease;
+  }
+  
+  #game-over-message button:hover {
+    background: #e64a19;
+  }
+  
+/* Estilo de los botones de control */
+#game-controls {
+  margin-top: 20px;
+  display: none; /* Ocultar por defecto */
+}
+
+#restart-button,
+#share-button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.7);
+  transition: background 0.3s ease;
+  margin-right: 10px;
+}
+
+#restart-button:hover,
+#share-button:hover {
+  background: #e64a19;
+}
