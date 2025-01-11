@@ -105,7 +105,7 @@ restartButton.addEventListener("click", startGame);
 // Función para compartir el juego con mensaje
 shareButton.addEventListener("click", () => {
   const finalMessage = ` ¡Jugué "Atrapa el número"! Mi puntaje final fue ${score}. ¡Desafíame!`;
-  const shareUrl = `https://www.example.com?message= ${encodeURIComponent(finalMessage)}`; // Sustituir "example.com" por la URL del juego real
+  const shareUrl = `https://rod-rod-rod.github.io/atrapanumero/ ${encodeURIComponent(finalMessage)}`; // Sustituir "example.com" por la URL del juego real
   
   // Si el navegador soporta la API de compartir
   if (navigator.share) {
