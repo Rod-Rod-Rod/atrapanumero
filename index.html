@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +7,43 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Selecciona el número correcto </h1>
-  <p>Objetivo: <span id="target-number">0</span></p>
-  <p>Puntaje: <span id="score">0</span></p>
+  <h1>
+    Atrapa el Número
+  </h1>
+  
+  <div class="game-info">
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/6514/6514970.png" alt="target" class="info-gif">
+      Objetivo: <span id="target-number">0</span>
+    </div>
+    <div>
+      <img src="https://opengameart.org/sites/default/files/coins.gif" alt="star" class="info-gif">
+      Puntaje: <span id="score">0</span>
+    </div>
+  </div>
+  
   <div id="time-bar-container">
     <div id="time-bar"></div>
   </div>
+  
   <div id="game-area"></div>
-  <p id="game-over-message" style="display: none;">¡Juego terminado! Tu puntaje final es <span id="final-score">0</span>.</p>
-
-  <!-- Botones de compartir y reiniciar -->
-  <div id="game-controls">
-    <button id="restart-button">Reiniciar Juego</button>
-    <button id="share-button">Compartir</button>
+  
+  <div id="game-over-message">
+    <h2>
+      <img src="https://i.redd.it/ngvajk82v9dc1.gif" alt="game over" class="game-over-gif">
+      ¡Juego Terminado!
+    </h2>
+    <p>Tu puntaje final es <span id="final-score">0</span></p>
+    <div id="game-controls">
+      <button id="restart-button">
+        <img src="https://opengameart.org/sites/default/files/1443321549047.png" alt="restart" class="button-gif">
+        Reiniciar
+      </button>
+      <button id="share-button">
+        <img src="https://img.freepik.com/vector-premium/icono-compartir-use-estilo-1-bit-pixel-art-bueno-su-proyecto_735839-95.jpg" alt="share" class="button-gif">
+        Compartir
+      </button>
+    </div>
   </div>
 
   <script src="script.js"></script>

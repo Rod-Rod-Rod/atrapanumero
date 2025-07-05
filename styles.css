@@ -2,145 +2,320 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #4a6aa7, #001b49); /* Fondo degradado */
+    background: linear-gradient(50deg, #754aa7, #001b49);
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
-  }
-  
-  /* Contenedor del juego */
-  #game-area {
+    min-height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Contenedor del juego */
+#game-area {
     position: relative;
-    width: 90%;
-    height: 60%;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
     margin: 20px 0;
-    background: #0a0da3;    /* Fondo semitransparente */
+    background: #0004ff;
     border: 2px solid #000;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* Título del juego */
-  h1 {
-    font-size: 2.5rem;
+    box-shadow: 0 4px 15px #00000066;
+}
+
+/* Título del juego */
+h1 {
+    font-size: 2.75rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #ffdf00;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 4px #000000cc;
     margin: 10px 0;
-  }
-  
-  /* Indicadores de tiempo y puntaje */
-  #target-number,
-  #score {
-    font-size: 1.8rem;
-    margin: 10px;
-    padding: 5px 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* GIFs en el título */
+.title-gif {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Contenedor de información del juego */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Indicadores de tiempo y puntaje */
+#target-number,
+#score {
+    font-size: 1.5rem;
+    padding: 8px 15px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    display: inline-block;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  }
-  
-  /* Barra de tiempo */
-  #time-bar-container {
-    width: 90%;
+    text-shadow: 0 1px 3px #000000cc;
+    flex: 1;
+    text-align: center;
+    min-width: 75px;
+}
+
+.game-info > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+}
+
+/* GIFs en la información del juego */
+.info-gif {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+/* Barra de tiempo */
+#time-bar-container {
+    width: 100%;
+    max-width: 450px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #ffffff33;
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 10px;
-  }
-  
-  #time-bar {
+    margin: 10px 0;
+}
+
+#time-bar {
     height: 100%;
-    background: lawngreen; /* Verde brillante */
+    background: #00ff00;
     transition: width 0.1s linear;
-  }
-  
-  /* Pelotas */
-  .ball {
+}
+
+/* Pelotas */
+.ball {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background: red;
-    border-radius: 25%;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(50deg, #ff0000, #ff6822);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .ball:hover {
-    transform: scale(1.1); /* Agrandar ligeramente al pasar el cursor */
-  }
-  
-  /* Mensaje de fin del juego */
-  #game-over-message {
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    box-shadow: 0 2px 8px #0000004d;
+    border: 2px solid #ffffff33;
+}
+
+.ball:hover,
+.ball:active {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px #00000066;
+}
+
+/* Mensaje de fin del juego */
+#game-over-message {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
+    background: #180022;
     color: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 25px #000000b3;
     text-align: center;
-  }
-  
-  #game-over-message h2 {
-    font-size: 2.2rem;
+    z-index: 1000;
+    max-width: 90%;
+    width: 300px;
+}
+
+#game-over-message h2 {
+    font-size: 2rem;
     color: #ffdf00;
-  }
-  
-  #game-over-message button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background: #ff5722;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.7);
-    transition: background 0.3s ease;
-  }
-  
-  #game-over-message button:hover {
-    background: #e64a19;
-  }
-  
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* GIF de game over */
+.game-over-gif {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
 /* Estilo de los botones de control */
 #game-controls {
-  margin-top: 20px;
-  display: none; /* Ocultar por defecto */
+    margin-top: 20px;
+    display: none;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #restart-button,
 #share-button {
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  background: #ff5722;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.7);
-  transition: background 0.3s ease;
-  margin-right: 10px;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    background: #0e7700;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 0 2px 3px #000000b3;
+    transition: background 0.3s ease;
+    min-width: 130px;
+    touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 #restart-button:hover,
-#share-button:hover {
-  background: #e64a19;
+#share-button:hover,
+#restart-button:active,
+#share-button:active {
+    background: #0a7701;
+}
+
+/* GIFs en los botones */
+.button-gif {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .title-gif {
+        width: 30px;
+        height: 30px;
+    }
+    
+    #game-area {
+        height: 500px;
+        margin: 15px 0;
+    }
+    
+    .ball {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    #target-number,
+    #score {
+        font-size: 1.2rem;
+        padding: 6px 12px;
+        min-width: 100px;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .info-gif {
+        width: 20px;
+        height: 20px;
+    }
+    
+    #game-over-message {
+        width: 280px;
+        padding: 25px;
+    }
+    
+    #game-over-message h2 {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .game-over-gif {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+        margin: 5px 0;
+    }
+    
+    .title-gif {
+        width: 25px;
+        height: 25px;
+    }
+    
+    #game-area {
+        height: 300px;
+        margin: 10px 0;
+    }
+    
+    .ball {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    #target-number,
+    #score {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+    
+    .info-gif {
+        width: 18px;
+        height: 18px;
+    }
+    
+    #restart-button,
+    #share-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        min-width: 110px;
+    }
+    
+    .button-gif {
+        width: 16px;
+        height: 16px;
+    }
 }
